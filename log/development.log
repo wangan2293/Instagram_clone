@@ -1,0 +1,74 @@
+Started GET "/users/new" for 127.0.0.1 at 2018-09-27 11:22:14 +0900
+  [1m[35m (40.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /Users/takanosho/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /Users/takanosho/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (108.0ms)
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/application_helper.rb:3
+Completed 200 OK in 5329ms (Views: 5252.2ms | ActiveRecord: 22.5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-09-27 11:23:33 +0900
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /Users/takanosho/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /Users/takanosho/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (12.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/application_helper.rb:3
+Completed 200 OK in 465ms (Views: 424.4ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/favorites/index" for 127.0.0.1 at 2018-09-27 11:23:45 +0900
+  [1m[35m (2.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /Users/takanosho/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by FavoritesController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/application_helper.rb:3
+  Rendering favorites/index.html.erb within layouts/application
+  [1m[36mTopic Load (6.4ms)[0m  [1m[34mSELECT `topics`.* FROM `topics` INNER JOIN `favorites` ON `topics`.`id` = `favorites`.`topic_id` WHERE `favorites`.`user_id` = 1[0m
+  ↳ app/views/favorites/index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/favorites/index.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/favorites/index.html.erb:8
+  Rendered favorites/index.html.erb within layouts/application (92.2ms)
+Completed 200 OK in 263ms (Views: 187.6ms | ActiveRecord: 27.8ms)
+
+
+Started GET "/topics/" for 127.0.0.1 at 2018-09-27 11:23:59 +0900
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT `topics`.* FROM `topics`[0m
+  ↳ app/views/topics/index.html.erb:3
+  [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT `favorites`.* FROM `favorites` WHERE `favorites`.`topic_id` IN (1, 2, 3, 4)[0m
+  ↳ app/views/topics/index.html.erb:3
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1[0m
+  ↳ app/views/topics/index.html.erb:3
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/topics/index.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:3
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `favorites` WHERE `favorites`.`topic_id` = 1[0m
+  ↳ app/views/topics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/topics/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `favorites` WHERE `favorites`.`topic_id` = 2[0m
+  ↳ app/views/topics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/topics/index.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `favorites` WHERE `favorites`.`topic_id` = 3[0m
+  ↳ app/views/topics/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/topics/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `favorites` WHERE `favorites`.`topic_id` = 4[0m
+  ↳ app/views/topics/index.html.erb:15
+  Rendered topics/index.html.erb within layouts/application (48.7ms)
+Completed 200 OK in 142ms (Views: 106.6ms | ActiveRecord: 22.4ms)
+
+
